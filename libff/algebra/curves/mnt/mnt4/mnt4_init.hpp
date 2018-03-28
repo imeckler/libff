@@ -14,6 +14,7 @@
 
 #include <libff/algebra/curves/mnt/mnt46_common.hpp>
 #include <libff/algebra/curves/public_params.hpp>
+#include <libff/algebra/curves/short_weierstrass/short_weierstrass_g1.hpp>
 #include <libff/algebra/fields/fp.hpp>
 #include <libff/algebra/fields/fp2.hpp>
 #include <libff/algebra/fields/fp4.hpp>
@@ -59,8 +60,25 @@ extern bigint<mnt4_q_limbs> mnt4_final_exponent_last_chunk_w1;
 
 void init_mnt4_params();
 
-class mnt4_G1;
 class mnt4_G2;
+
+class mnt4_swparams {
+public:
+  typedef mnt4_Fq Fq;
+  typedef mnt4_Fr Fr;
+  static mnt4_Fq coeff_a;
+  static mnt4_Fq coeff_b;
+  static mnt4_Fq zeroX;
+  static mnt4_Fq zeroY;
+  static mnt4_Fq zeroZ;
+  static mnt4_Fq oneX;
+  static mnt4_Fq oneY;
+  static mnt4_Fq oneZ;
+};
+
+void init_mnt4_swparams();
+
+typedef short_weierstrass_G1<mnt4_swparams> mnt4_G1;
 
 } // libff
 

@@ -112,9 +112,9 @@ void init_mnt4_params()
     mnt4_Fq4::Frobenius_coeffs_c1[2] = mnt4_Fq("475922286169261325753349249653048451545124879242694725395555128576210262817955800483758080");
     mnt4_Fq4::Frobenius_coeffs_c1[3] = mnt4_Fq("468238122923807824137727898100575114475823797181717920390930116882062371863914936316755773");
 
-    /* choice of short Weierstrass curve and its twist */
-    mnt4_G1::coeff_a = mnt4_Fq("2");
-    mnt4_G1::coeff_b = mnt4_Fq("423894536526684178289416011533888240029318103673896002803341544124054745019340795360841685");
+    /* choice of short Weierstrass twist */
+    init_mnt4_swparams();
+    mnt4_G1::init();
     mnt4_twist = mnt4_Fq2(mnt4_Fq::zero(), mnt4_Fq::one());
     mnt4_twist_coeff_a = mnt4_Fq2(mnt4_G1::coeff_a * mnt4_Fq2::non_residue, mnt4_Fq::zero());
     mnt4_twist_coeff_b = mnt4_Fq2(mnt4_Fq::zero(), mnt4_G1::coeff_b * mnt4_Fq2::non_residue);
@@ -129,6 +129,7 @@ void init_mnt4_params()
     mnt4_twist_mul_by_q_Y = mnt4_Fq("7684163245453501615621351552473337069301082060976805004625011694147890954040864167002308");
 
     /* choice of group G1 */
+    /*
     mnt4_G1::G1_zero = mnt4_G1(mnt4_Fq::zero(),
                                mnt4_Fq::one(),
                                mnt4_Fq::zero());
@@ -136,7 +137,7 @@ void init_mnt4_params()
 
     mnt4_G1::G1_one = mnt4_G1(mnt4_Fq("60760244141852568949126569781626075788424196370144486719385562369396875346601926534016838"),
                               mnt4_Fq("363732850702582978263902770815145784459747722357071843971107674179038674942891694705904306"),
-                              mnt4_Fq::one());
+                              mnt4_Fq::one()); */
 
     mnt4_G1::wnaf_window_table.resize(0);
     mnt4_G1::wnaf_window_table.push_back(11);

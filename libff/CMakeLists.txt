@@ -34,17 +34,20 @@ add_library(
   algebra/curves/edwards/edwards_init.cpp
   algebra/curves/edwards/edwards_pairing.cpp
   algebra/curves/edwards/edwards_pp.cpp
+  algebra/curves/short_weierstrass/short_weierstrass_g1.cpp
   algebra/curves/mnt/mnt4/mnt4_g1.cpp
   algebra/curves/mnt/mnt4/mnt4_g2.cpp
   algebra/curves/mnt/mnt4/mnt4_init.cpp
   algebra/curves/mnt/mnt4/mnt4_pairing.cpp
   algebra/curves/mnt/mnt4/mnt4_pp.cpp
+  algebra/curves/mnt/mnt4/mnt4_swparams.cpp
   algebra/curves/mnt/mnt46_common.cpp
   algebra/curves/mnt/mnt6/mnt6_g1.cpp
   algebra/curves/mnt/mnt6/mnt6_g2.cpp
   algebra/curves/mnt/mnt6/mnt6_init.cpp
   algebra/curves/mnt/mnt6/mnt6_pairing.cpp
   algebra/curves/mnt/mnt6/mnt6_pp.cpp
+  algebra/curves/mnt/mnt6/mnt6_swparams.cpp
   common/double.cpp
   common/profiling.cpp
   common/utils.cpp

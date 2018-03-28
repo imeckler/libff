@@ -121,9 +121,9 @@ void init_mnt6_params()
     mnt6_Fq6::Frobenius_coeffs_c1[5] = mnt6_Fq("4183387201740296620308398334599285547820769823264541783190415909159130177461911693276181");
     mnt6_Fq6::my_Fp2::non_residue = mnt6_Fq3::non_residue;
 
-    /* choice of short Weierstrass curve and its twist */
-    mnt6_G1::coeff_a = mnt6_Fq("11");
-    mnt6_G1::coeff_b = mnt6_Fq("106700080510851735677967319632585352256454251201367587890185989362936000262606668469523074");
+    /* choice of short Weierstrass twist */
+    init_mnt6_swparams();
+    mnt6_G1::init();
     mnt6_twist = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::one(), mnt6_Fq::zero());
     mnt6_twist_coeff_a = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::zero(),
                                   mnt6_G1::coeff_a);
@@ -142,12 +142,13 @@ void init_mnt6_params()
     mnt6_twist_mul_by_q_Y = mnt6_Fq("475922286169261325753349249653048451545124878552823515553267735739164647307408490559963136");
 
     /* choice of group G1 */
+    /*TODO: Delete
     mnt6_G1::G1_zero = mnt6_G1(mnt6_Fq::zero(),
                                mnt6_Fq::one(),
                                mnt6_Fq::zero());
     mnt6_G1::G1_one = mnt6_G1(mnt6_Fq("336685752883082228109289846353937104185698209371404178342968838739115829740084426881123453"),
                               mnt6_Fq("402596290139780989709332707716568920777622032073762749862342374583908837063963736098549800"),
-                              mnt6_Fq::one());
+                              mnt6_Fq::one()); */
 
     mnt6_G1::wnaf_window_table.resize(0);
     mnt6_G1::wnaf_window_table.push_back(11);
