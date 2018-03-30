@@ -28,8 +28,8 @@ mnt6_Fq3 mnt6_swparams::G2_one_X;
 mnt6_Fq3 mnt6_swparams::G2_one_Y;
 mnt6_Fq3 mnt6_swparams::G2_one_Z;
 
-mnt6_Fq3 mnt6_swparams::twist_mul_by_q_X;
-mnt6_Fq3 mnt6_swparams::twist_mul_by_q_Y;
+mnt6_Fq mnt6_swparams::twist_mul_by_q_X;
+mnt6_Fq mnt6_swparams::twist_mul_by_q_Y;
 
 mnt6_Fq3 mnt6_swparams::mul_by_a(const mnt6_Fq3 &elt)
 {

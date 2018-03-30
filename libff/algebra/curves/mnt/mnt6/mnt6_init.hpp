@@ -15,6 +15,7 @@
 #include <libff/algebra/curves/mnt/mnt46_common.hpp>
 #include <libff/algebra/curves/public_params.hpp>
 #include <libff/algebra/curves/short_weierstrass/short_weierstrass_g1.hpp>
+#include <libff/algebra/curves/short_weierstrass/short_weierstrass_g2.hpp>
 #include <libff/algebra/fields/fp.hpp>
 #include <libff/algebra/fields/fp3.hpp>
 #include <libff/algebra/fields/fp6_2over3.hpp>
@@ -62,10 +63,6 @@ extern bigint<mnt6_q_limbs> mnt6_final_exponent_last_chunk_w1;
 
 void init_mnt6_params();
 
-/* TODO: Delete
-class mnt6_G1; */
-class mnt6_G2;
-
 class mnt6_swparams {
 public:
   typedef mnt6_Fq Fq;
@@ -98,6 +95,7 @@ public:
 };
 
 typedef short_weierstrass_G1<mnt6_swparams> mnt6_G1;
+typedef short_weierstrass_G2<mnt6_swparams> mnt6_G2;
 
 } // libff
 

@@ -28,8 +28,8 @@ mnt4_Fq2 mnt4_swparams::G2_one_X;
 mnt4_Fq2 mnt4_swparams::G2_one_Y;
 mnt4_Fq2 mnt4_swparams::G2_one_Z;
 
-mnt4_Fq2 mnt4_swparams::twist_mul_by_q_X;
-mnt4_Fq2 mnt4_swparams::twist_mul_by_q_Y;
+mnt4_Fq mnt4_swparams::twist_mul_by_q_X;
+mnt4_Fq mnt4_swparams::twist_mul_by_q_Y;
 
 mnt4_Fq2 mnt4_swparams::mul_by_a(const mnt4_Fq2 &elt)
 {

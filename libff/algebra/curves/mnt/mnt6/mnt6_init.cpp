@@ -204,9 +204,9 @@ void init_mnt6_params()
     mnt6_swparams::twist_mul_by_q_X = mnt6_Fq("4183387201740296620308398334599285547820769823264541783190415909159130177461911693276180");
     mnt6_swparams::twist_mul_by_q_Y = mnt6_Fq("475922286169261325753349249653048451545124878552823515553267735739164647307408490559963136");
 
-    mnt6_swparams::G2_zero_X = mnt4_Fq2::zero();
-    mnt6_swparams::G2_zero_Y = mnt4_Fq2::one();
-    mnt6_swparams::G2_zero_Z = mnt4_Fq2::zero();
+    mnt6_swparams::G2_zero_X = mnt6_Fq3::zero();
+    mnt6_swparams::G2_zero_Y = mnt6_Fq3::one();
+    mnt6_swparams::G2_zero_Z = mnt6_Fq3::zero();
 
     mnt6_swparams::G2_one_X = mnt6_Fq3(mnt6_Fq("421456435772811846256826561593908322288509115489119907560382401870203318738334702321297427"),
                                        mnt6_Fq("103072927438548502463527009961344915021167584706439945404959058962657261178393635706405114"),
