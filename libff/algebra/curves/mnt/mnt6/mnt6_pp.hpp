@@ -12,8 +12,6 @@
 #ifndef MNT6_PP_HPP_
 #define MNT6_PP_HPP_
 
-#include <libff/algebra/curves/mnt/mnt6/mnt6_g1.hpp>
-#include <libff/algebra/curves/mnt/mnt6/mnt6_g2.hpp>
 #include <libff/algebra/curves/mnt/mnt6/mnt6_init.hpp>
 #include <libff/algebra/curves/mnt/mnt6/mnt6_pairing.hpp>
 #include <libff/algebra/curves/public_params.hpp>
