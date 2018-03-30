@@ -19,15 +19,6 @@
 
 namespace libff {
 
-  /*
-template<typename TSWParamsT>
-class short_weierstrass_G2<TSWParamsT>;
-
-template<typename TSWParamsT>
-std::ostream& operator<<(std::ostream &, const short_weierstrass_G2<TSWParamsT>&);
-template<typename TSWParamsT>
-std::istream& operator>>(std::istream &, short_weierstrass_G2<TSWParamsT>&); */
-
 template<typename TSWParamsT>
 class short_weierstrass_G2 {
 private:
@@ -57,10 +48,6 @@ public:
     twist_field X() const { return X_; }
     twist_field Y() const { return Y_; }
     twist_field Z() const { return Z_; }
-
-    /*
-    static twist_field mul_by_a(const twist_field &elt);
-    static twist_field mul_by_b(const twist_field &elt); */
 
     void print() const;
     void print_coordinates() const;
@@ -113,7 +100,7 @@ short_weierstrass_G2<TSWParamsT> operator*(const Fp_model<m,modulus_p> &lhs, con
     return scalar_mul<short_weierstrass_G2<TSWParamsT>, m>(rhs, lhs.as_bigint());
 }
 
-// TODO: Begin implementation
+// Begin implementation
 template<typename TSWParamsT>
 using TSWtwist_field = typename TSWParamsT::twist_field;
 template<typename TSWParamsT>
@@ -151,20 +138,6 @@ void short_weierstrass_G2<TSWParamsT>::init()
     G2_zero = short_weierstrass_G2<TSWParamsT>(TSWParamsT::G2_zero_X, TSWParamsT::G2_zero_Y, TSWParamsT::G2_zero_Z);
     G2_one = short_weierstrass_G2<TSWParamsT>(TSWParamsT::G2_one_X, TSWParamsT::G2_one_Y, TSWParamsT::G2_one_Z);
 }
-
-/*
-template<typename TSWParamsT>
-TSWtwist_field<TSWParamsT> short_weierstrass_G2<TSWParamsT>::mul_by_a(const TSWtwist_field<TSWParamsT> &elt)
-{
-    return TSWtwist_field<TSWParamsT>(mnt4_twist_mul_by_a_c0 * elt.c0, mnt4_twist_mul_by_a_c1 * elt.c1);
-}
-
-template<typename TSWParamsT>
-TSWtwist_field<TSWParamsT> short_weierstrass_G2<TSWParamsT>::mul_by_b(const TSWtwist_field<TSWParamsT> &elt)
-{
-    return TSWtwist_field<TSWParamsT>(mnt4_twist_mul_by_b_c0 * elt.c1, mnt4_twist_mul_by_b_c1 * elt.c0);
-}
-*/
 
 template<typename TSWParamsT>
 void short_weierstrass_G2<TSWParamsT>::print() const
