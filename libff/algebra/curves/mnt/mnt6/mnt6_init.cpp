@@ -121,34 +121,18 @@ void init_mnt6_params()
     mnt6_Fq6::Frobenius_coeffs_c1[5] = mnt6_Fq("4183387201740296620308398334599285547820769823264541783190415909159130177461911693276181");
     mnt6_Fq6::my_Fp2::non_residue = mnt6_Fq3::non_residue;
 
-    /* choice of short Weierstrass twist */
-    init_mnt6_swparams();
-    mnt6_G1::init();
-    mnt6_twist = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::one(), mnt6_Fq::zero());
-    mnt6_twist_coeff_a = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::zero(),
-                                  mnt6_G1::coeff_a);
-    mnt6_twist_coeff_b = mnt6_Fq3(mnt6_G1::coeff_b * mnt6_Fq3::non_residue,
-                                  mnt6_Fq::zero(), mnt6_Fq::zero());
-    mnt6_G2::twist = mnt6_twist;
-    mnt6_G2::coeff_a = mnt6_twist_coeff_a;
-    mnt6_G2::coeff_b = mnt6_twist_coeff_b;
-    mnt6_twist_mul_by_a_c0 = mnt6_G1::coeff_a * mnt6_Fq3::non_residue;
-    mnt6_twist_mul_by_a_c1 = mnt6_G1::coeff_a * mnt6_Fq3::non_residue;
-    mnt6_twist_mul_by_a_c2 = mnt6_G1::coeff_a;
-    mnt6_twist_mul_by_b_c0 = mnt6_G1::coeff_b * mnt6_Fq3::non_residue;
-    mnt6_twist_mul_by_b_c1 = mnt6_G1::coeff_b * mnt6_Fq3::non_residue;
-    mnt6_twist_mul_by_b_c2 = mnt6_G1::coeff_b * mnt6_Fq3::non_residue;
-    mnt6_twist_mul_by_q_X = mnt6_Fq("4183387201740296620308398334599285547820769823264541783190415909159130177461911693276180");
-    mnt6_twist_mul_by_q_Y = mnt6_Fq("475922286169261325753349249653048451545124878552823515553267735739164647307408490559963136");
-
+    /* choice of short Weierstrass curve and its twist */
     /* choice of group G1 */
-    /*TODO: Delete
-    mnt6_G1::G1_zero = mnt6_G1(mnt6_Fq::zero(),
-                               mnt6_Fq::one(),
-                               mnt6_Fq::zero());
-    mnt6_G1::G1_one = mnt6_G1(mnt6_Fq("336685752883082228109289846353937104185698209371404178342968838739115829740084426881123453"),
-                              mnt6_Fq("402596290139780989709332707716568920777622032073762749862342374583908837063963736098549800"),
-                              mnt6_Fq::one()); */
+    mnt6_swparams::coeff_a = mnt6_Fq("11");
+    mnt6_swparams::coeff_b = mnt6_Fq("106700080510851735677967319632585352256454251201367587890185989362936000262606668469523074");
+    mnt6_swparams::G1_zero_X = mnt6_Fq::zero();
+    mnt6_swparams::G1_zero_Y = mnt6_Fq::one();
+    mnt6_swparams::G1_zero_Z = mnt6_Fq::zero();
+    mnt6_swparams::G1_one_X = mnt6_Fq("336685752883082228109289846353937104185698209371404178342968838739115829740084426881123453");
+    mnt6_swparams::G1_one_Y = mnt6_Fq("402596290139780989709332707716568920777622032073762749862342374583908837063963736098549800");
+    mnt6_swparams::G1_one_Z = mnt6_Fq::one();
+
+    mnt6_G1::init();
 
     mnt6_G1::wnaf_window_table.resize(0);
     mnt6_G1::wnaf_window_table.push_back(11);
@@ -203,16 +187,36 @@ void init_mnt6_params()
     mnt6_G1::fixed_base_exp_window_table.push_back(42682375);
 
     /* choice of group G2 */
-    mnt6_G2::G2_zero = mnt6_G2(mnt6_Fq3::zero(),
-                               mnt6_Fq3::one(),
-                               mnt6_Fq3::zero());
-    mnt6_G2::G2_one = mnt6_G2(mnt6_Fq3(mnt6_Fq("421456435772811846256826561593908322288509115489119907560382401870203318738334702321297427"),
+    mnt6_twist = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::one(), mnt6_Fq::zero());
+    mnt6_twist_coeff_a = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::zero(),
+                                  mnt6_G1::coeff_a);
+    mnt6_twist_coeff_b = mnt6_Fq3(mnt6_G1::coeff_b * mnt6_Fq3::non_residue,
+                                  mnt6_Fq::zero(), mnt6_Fq::zero());
+
+    mnt6_swparams::twist_coeff_a = mnt6_twist_coeff_a;
+    mnt6_swparams::twist_coeff_b = mnt6_twist_coeff_b;
+    mnt6_twist_mul_by_a_c0 = mnt6_G1::coeff_a * mnt6_Fq3::non_residue;
+    mnt6_twist_mul_by_a_c1 = mnt6_G1::coeff_a * mnt6_Fq3::non_residue;
+    mnt6_twist_mul_by_a_c2 = mnt6_G1::coeff_a;
+    mnt6_twist_mul_by_b_c0 = mnt6_G1::coeff_b * mnt6_Fq3::non_residue;
+    mnt6_twist_mul_by_b_c1 = mnt6_G1::coeff_b * mnt6_Fq3::non_residue;
+    mnt6_twist_mul_by_b_c2 = mnt6_G1::coeff_b * mnt6_Fq3::non_residue;
+    mnt6_swparams::twist_mul_by_q_X = mnt6_Fq("4183387201740296620308398334599285547820769823264541783190415909159130177461911693276180");
+    mnt6_swparams::twist_mul_by_q_Y = mnt6_Fq("475922286169261325753349249653048451545124878552823515553267735739164647307408490559963136");
+
+    mnt6_swparams::G2_zero_X = mnt4_Fq2::zero();
+    mnt6_swparams::G2_zero_Y = mnt4_Fq2::one();
+    mnt6_swparams::G2_zero_Z = mnt4_Fq2::zero();
+
+    mnt6_swparams::G2_one_X = mnt6_Fq3(mnt6_Fq("421456435772811846256826561593908322288509115489119907560382401870203318738334702321297427"),
                                        mnt6_Fq("103072927438548502463527009961344915021167584706439945404959058962657261178393635706405114"),
-                                       mnt6_Fq("143029172143731852627002926324735183809768363301149009204849580478324784395590388826052558")),
-                              mnt6_Fq3(mnt6_Fq("464673596668689463130099227575639512541218133445388869383893594087634649237515554342751377"),
+                                       mnt6_Fq("143029172143731852627002926324735183809768363301149009204849580478324784395590388826052558"));
+    mnt6_swparams::G2_one_Y = mnt6_Fq3(mnt6_Fq("464673596668689463130099227575639512541218133445388869383893594087634649237515554342751377"),
                                        mnt6_Fq("100642907501977375184575075967118071807821117960152743335603284583254620685343989304941678"),
-                                       mnt6_Fq("123019855502969896026940545715841181300275180157288044663051565390506010149881373807142903")),
-                              mnt6_Fq3::one());
+                                       mnt6_Fq("123019855502969896026940545715841181300275180157288044663051565390506010149881373807142903"));
+    mnt6_swparams::G2_one_Z = mnt6_Fq3::one();
+
+    mnt6_G2::init();
 
     mnt6_G2::wnaf_window_table.resize(0);
     mnt6_G2::wnaf_window_table.push_back(5);

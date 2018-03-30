@@ -66,17 +66,32 @@ class mnt4_swparams {
 public:
   typedef mnt4_Fq Fq;
   typedef mnt4_Fr Fr;
-  static mnt4_Fq coeff_a;
-  static mnt4_Fq coeff_b;
-  static mnt4_Fq zeroX;
-  static mnt4_Fq zeroY;
-  static mnt4_Fq zeroZ;
-  static mnt4_Fq oneX;
-  static mnt4_Fq oneY;
-  static mnt4_Fq oneZ;
-};
+  static Fq coeff_a;
+  static Fq coeff_b;
+  static Fq G1_zero_X;
+  static Fq G1_zero_Y;
+  static Fq G1_zero_Z;
+  static Fq G1_one_X;
+  static Fq G1_one_Y;
+  static Fq G1_one_Z;
 
-void init_mnt4_swparams();
+  typedef mnt4_Fq2 twist_field;
+  static twist_field twist_coeff_a;
+  static twist_field twist_coeff_b;
+
+  static twist_field G2_zero_X;
+  static twist_field G2_zero_Y;
+  static twist_field G2_zero_Z;
+  static twist_field G2_one_X;
+  static twist_field G2_one_Y;
+  static twist_field G2_one_Z;
+
+  static twist_field mul_by_a(const twist_field &elt);
+  static twist_field mul_by_b(const twist_field &elt);
+
+  static Fq twist_mul_by_q_X;
+  static Fq twist_mul_by_q_Y;
+};
 
 typedef short_weierstrass_G1<mnt4_swparams> mnt4_G1;
 

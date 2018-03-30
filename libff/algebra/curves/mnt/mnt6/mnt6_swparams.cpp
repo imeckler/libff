@@ -11,23 +11,34 @@ namespace libff {
 
 mnt6_Fq mnt6_swparams::coeff_a;
 mnt6_Fq mnt6_swparams::coeff_b;
-mnt6_Fq mnt6_swparams::zeroX;
-mnt6_Fq mnt6_swparams::zeroY;
-mnt6_Fq mnt6_swparams::zeroZ;
-mnt6_Fq mnt6_swparams::oneX;
-mnt6_Fq mnt6_swparams::oneY;
-mnt6_Fq mnt6_swparams::oneZ;
+mnt6_Fq mnt6_swparams::G1_zero_X;
+mnt6_Fq mnt6_swparams::G1_zero_Y;
+mnt6_Fq mnt6_swparams::G1_zero_Z;
+mnt6_Fq mnt6_swparams::G1_one_X;
+mnt6_Fq mnt6_swparams::G1_one_Y;
+mnt6_Fq mnt6_swparams::G1_one_Z;
 
-void init_mnt6_swparams()
+mnt6_Fq3 mnt6_swparams::twist_coeff_a;
+mnt6_Fq3 mnt6_swparams::twist_coeff_b;
+
+mnt6_Fq3 mnt6_swparams::G2_zero_X;
+mnt6_Fq3 mnt6_swparams::G2_zero_Y;
+mnt6_Fq3 mnt6_swparams::G2_zero_Z;
+mnt6_Fq3 mnt6_swparams::G2_one_X;
+mnt6_Fq3 mnt6_swparams::G2_one_Y;
+mnt6_Fq3 mnt6_swparams::G2_one_Z;
+
+mnt6_Fq3 mnt6_swparams::twist_mul_by_q_X;
+mnt6_Fq3 mnt6_swparams::twist_mul_by_q_Y;
+
+mnt6_Fq3 mnt6_swparams::mul_by_a(const mnt6_Fq3 &elt)
 {
-    mnt6_swparams::coeff_a = mnt6_Fq("11");
-    mnt6_swparams::coeff_b = mnt6_Fq("106700080510851735677967319632585352256454251201367587890185989362936000262606668469523074");
-    mnt6_swparams::zeroX = mnt6_Fq::zero();
-    mnt6_swparams::zeroY = mnt6_Fq::one();
-    mnt6_swparams::zeroZ = mnt6_Fq::zero();
-    mnt6_swparams::oneX = mnt6_Fq("336685752883082228109289846353937104185698209371404178342968838739115829740084426881123453");
-    mnt6_swparams::oneY = mnt6_Fq("402596290139780989709332707716568920777622032073762749862342374583908837063963736098549800");
-    mnt6_swparams::oneZ = mnt6_Fq::one();
+    return mnt6_Fq3(mnt6_twist_mul_by_a_c0 * elt.c1, mnt6_twist_mul_by_a_c1 * elt.c2, mnt6_twist_mul_by_a_c2 * elt.c0);
+}
+
+mnt6_Fq3 mnt6_swparams::mul_by_b(const mnt6_Fq3 &elt)
+{
+    return mnt6_Fq3(mnt6_twist_mul_by_b_c0 * elt.c0, mnt6_twist_mul_by_b_c1 * elt.c1, mnt6_twist_mul_by_b_c2 * elt.c2);
 }
 
 }

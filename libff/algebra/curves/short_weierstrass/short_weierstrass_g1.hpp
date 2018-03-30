@@ -54,7 +54,7 @@ public:
     static void init();
 
     // using projective coordinates
-    short_weierstrass_G1<SWParamsT>() : X_(SWParamsT::zeroX), Y_(SWParamsT::zeroY), Z_(SWParamsT::zeroZ) {};
+    short_weierstrass_G1<SWParamsT>() : X_(SWParamsT::G1_zero_X), Y_(SWParamsT::G1_zero_Y), Z_(SWParamsT::G1_zero_Z) {};
     short_weierstrass_G1<SWParamsT>(const base_field& X, const base_field& Y) : X_(X), Y_(Y), Z_(base_field::one()) {}
     short_weierstrass_G1<SWParamsT>(const base_field& X, const base_field& Y, const base_field& Z) : X_(X), Y_(Y), Z_(Z) {}
 
@@ -145,8 +145,8 @@ void short_weierstrass_G1<SWParamsT>::init()
 {
     coeff_a = SWParamsT::coeff_a;
     coeff_b = SWParamsT::coeff_b;
-    G1_zero = short_weierstrass_G1<SWParamsT>(SWParamsT::zeroX, SWParamsT::zeroY, SWParamsT::zeroZ);
-    G1_one = short_weierstrass_G1<SWParamsT>(SWParamsT::oneX, SWParamsT::oneY, SWParamsT::oneZ);
+    G1_zero = short_weierstrass_G1<SWParamsT>(SWParamsT::G1_zero_X, SWParamsT::G1_zero_Y, SWParamsT::G1_zero_Z);
+    G1_one = short_weierstrass_G1<SWParamsT>(SWParamsT::G1_one_X, SWParamsT::G1_one_Y, SWParamsT::G1_one_Z);
 }
 
 template<typename SWParamsT>
