@@ -176,7 +176,7 @@ void init_mnt4_params()
     mnt4_G1::fixed_base_exp_window_table.push_back(42363731);
 
     /* choice of group G2 */
-    mnt4_twist = mnt4_Fq2(mnt4_Fq::zero(), mnt4_Fq::one());
+    mnt4_swparams::twist = mnt4_Fq2(mnt4_Fq::zero(), mnt4_Fq::one());
     mnt4_twist_coeff_a = mnt4_Fq2(mnt4_G1::coeff_a * mnt4_Fq2::non_residue, mnt4_Fq::zero());
     mnt4_twist_coeff_b = mnt4_Fq2(mnt4_Fq::zero(), mnt4_G1::coeff_b * mnt4_Fq2::non_residue);
 
@@ -254,12 +254,12 @@ void init_mnt4_params()
     mnt4_G2::fixed_base_exp_window_table.push_back(38760027);
 
     /* pairing parameters */
-    mnt4_ate_loop_count = bigint_q("689871209842287392837045615510547309923794944");
-    mnt4_ate_is_loop_count_neg = false;
-    mnt4_final_exponent = bigint<4*mnt4_q_limbs>("107797360357109903430794490309592072278927783803031854357910908121903439838772861497177116410825586743089760869945394610511917274977971559062689561855016270594656570874331111995170645233717143416875749097203441437192367065467706065411650403684877366879441766585988546560");
-    mnt4_final_exponent_last_chunk_abs_of_w0 = bigint_q("689871209842287392837045615510547309923794945");
-    mnt4_final_exponent_last_chunk_is_w0_neg = false;
-    mnt4_final_exponent_last_chunk_w1 = bigint_q("1");
+    mnt4_swparams::ate_loop_count = bigint_q("689871209842287392837045615510547309923794944");
+    mnt4_swparams::ate_is_loop_count_neg = false;
+    mnt4_swparams::final_exponent = bigint<4*mnt4_q_limbs>("107797360357109903430794490309592072278927783803031854357910908121903439838772861497177116410825586743089760869945394610511917274977971559062689561855016270594656570874331111995170645233717143416875749097203441437192367065467706065411650403684877366879441766585988546560");
+    mnt4_swparams::final_exponent_last_chunk_abs_of_w0 = bigint_q("689871209842287392837045615510547309923794945");
+    mnt4_swparams::final_exponent_last_chunk_is_w0_neg = false;
+    mnt4_swparams::final_exponent_last_chunk_w1 = bigint_q("1");
 }
 
 } // libff
