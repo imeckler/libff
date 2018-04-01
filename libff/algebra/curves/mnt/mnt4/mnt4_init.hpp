@@ -41,7 +41,6 @@ typedef Fp4_model<mnt4_q_limbs, mnt4_modulus_q> mnt4_Fq4;
 typedef mnt4_Fq4 mnt4_GT;
 
 // parameters for twisted short Weierstrass curve E'/Fq2 : y^2 = x^3 + (a * twist^2) * x + (b * twist^3)
-// TODO: Delete extern mnt4_Fq2 mnt4_twist;
 extern mnt4_Fq2 mnt4_twist_coeff_a;
 extern mnt4_Fq2 mnt4_twist_coeff_b;
 extern mnt4_Fq mnt4_twist_mul_by_a_c0;
@@ -97,6 +96,7 @@ public:
   static bool final_exponent_last_chunk_is_w0_neg;
   static bigint<mnt4_q_limbs> final_exponent_last_chunk_w1;
 
+  static twist_field embed_as_first_coordinate(const Fq &x);
   static Fqk final_exponentiation_first_chunk(const Fqk &elt, const Fqk &elt_inv);
   static Fqk special_mul(const Fqk &x, const Fqk &y);
 };

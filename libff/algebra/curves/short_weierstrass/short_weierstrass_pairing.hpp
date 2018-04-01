@@ -756,7 +756,7 @@ SWFqk<SWParamsT> short_weierstrass_ate_miller_loop(
 {
     enter_block("Call to mnt4_ate_miller_loop");
 
-    SWtwist_field<SWParamsT> L1_coeff = SWtwist_field<SWParamsT>(prec_P.PX, SWFq<SWParamsT>::zero()) - prec_Q.QX_over_twist;
+    SWtwist_field<SWParamsT> L1_coeff = SWParamsT::embed_as_first_coordinate(prec_P.PX) - prec_Q.QX_over_twist;
 
     SWFqk<SWParamsT> f = SWFqk<SWParamsT>::one();
 
@@ -816,8 +816,8 @@ SWFqk<SWParamsT> short_weierstrass_ate_double_miller_loop(
 {
     enter_block("Call to mnt4_ate_double_miller_loop");
 
-    SWtwist_field<SWParamsT> L1_coeff1 = SWtwist_field<SWParamsT>(prec_P1.PX, SWFq<SWParamsT>::zero()) - prec_Q1.QX_over_twist;
-    SWtwist_field<SWParamsT> L1_coeff2 = SWtwist_field<SWParamsT>(prec_P2.PX, SWFq<SWParamsT>::zero()) - prec_Q2.QX_over_twist;
+    SWtwist_field<SWParamsT> L1_coeff1 = SWParamsT::embed_as_first_coordinate(prec_P1.PX) - prec_Q1.QX_over_twist;
+    SWtwist_field<SWParamsT> L1_coeff2 = SWParamsT::embed_as_first_coordinate(prec_P2.PX) - prec_Q2.QX_over_twist;
 
     SWFqk<SWParamsT> f = SWFqk<SWParamsT>::one();
 

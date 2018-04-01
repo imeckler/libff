@@ -66,4 +66,9 @@ mnt4_Fq4 mnt4_swparams::special_mul(const mnt4_Fq4 &x, const mnt4_Fq4 &y)
     return x.mul_by_023(y);
 }
 
+mnt4_Fq2 mnt4_swparams::embed_as_first_coordinate(const mnt4_Fq &x)
+{
+    return mnt4_Fq2(x, mnt4_Fq::zero());
+}
+
 }
