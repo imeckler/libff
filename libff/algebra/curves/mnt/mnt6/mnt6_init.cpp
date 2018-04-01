@@ -18,7 +18,6 @@ namespace libff {
 //bigint<mnt6_r_limbs> mnt6_modulus_r = mnt46_modulus_B;
 //bigint<mnt6_q_limbs> mnt6_modulus_q = mnt46_modulus_A;
 
-mnt6_Fq3 mnt6_twist;
 mnt6_Fq3 mnt6_twist_coeff_a;
 mnt6_Fq3 mnt6_twist_coeff_b;
 mnt6_Fq mnt6_twist_mul_by_a_c0;
@@ -185,7 +184,7 @@ void init_mnt6_params()
     mnt6_G1::fixed_base_exp_window_table.push_back(42682375);
 
     /* choice of group G2 */
-    mnt6_twist = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::one(), mnt6_Fq::zero());
+    mnt6_swparams::twist = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::one(), mnt6_Fq::zero());
     mnt6_twist_coeff_a = mnt6_Fq3(mnt6_Fq::zero(), mnt6_Fq::zero(),
                                   mnt6_G1::coeff_a);
     mnt6_twist_coeff_b = mnt6_Fq3(mnt6_G1::coeff_b * mnt6_Fq3::non_residue,
@@ -269,12 +268,12 @@ void init_mnt6_params()
     mnt6_G2::fixed_base_exp_window_table.push_back(38554492);
 
     /* pairing parameters */
-    mnt6_ate_loop_count = bigint_q("689871209842287392837045615510547309923794944");
-    mnt6_ate_is_loop_count_neg = true;
-    mnt6_final_exponent = bigint<6*mnt6_q_limbs>("24416320138090509697890595414313438768353977489862543935904010715439066975957855922532159264213056712140358746422742237328406558352706591021642230618060502855451264045397444793186876199015256781648746888625527075466063075011307800862173764236311342105211681121426931616843635215852236649271569251468773714424208521977615548771268520882870120900360322044218806712027729351845307690474985502587527753847200130592058098363641559341826790559426614919168");
-    mnt6_final_exponent_last_chunk_abs_of_w0 = bigint_q("689871209842287392837045615510547309923794944");
-    mnt6_final_exponent_last_chunk_is_w0_neg = true;
-    mnt6_final_exponent_last_chunk_w1 = bigint_q("1");
+    mnt6_swparams::ate_loop_count = bigint_q("689871209842287392837045615510547309923794944");
+    mnt6_swparams::ate_is_loop_count_neg = true;
+    mnt6_swparams::final_exponent = bigint<6*mnt6_q_limbs>("24416320138090509697890595414313438768353977489862543935904010715439066975957855922532159264213056712140358746422742237328406558352706591021642230618060502855451264045397444793186876199015256781648746888625527075466063075011307800862173764236311342105211681121426931616843635215852236649271569251468773714424208521977615548771268520882870120900360322044218806712027729351845307690474985502587527753847200130592058098363641559341826790559426614919168");
+    mnt6_swparams::final_exponent_last_chunk_abs_of_w0 = bigint_q("689871209842287392837045615510547309923794944");
+    mnt6_swparams::final_exponent_last_chunk_is_w0_neg = true;
+    mnt6_swparams::final_exponent_last_chunk_w1 = bigint_q("1");
 }
 
 } // libff
