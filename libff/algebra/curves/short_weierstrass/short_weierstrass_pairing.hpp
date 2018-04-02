@@ -19,18 +19,6 @@
 #include <libff/common/profiling.hpp>
 
 namespace libff {
-/* TODO: Delete
- *
-adds: (which frobenius exponent 2 vs 3)
-- final_exponent_last_chunk_w1 (done)
-- final_exponent_last_chunk_is_w0_neg (done)
-- final_exponent_last_chunk_abs_of_w0 (done)
-- twist
-- ate_loop_count (done)
-- ate_is_loop_count_neg (done)
-- final_exponent (done)
-- final_exponentiation_first_chunk
-*/
 
 /* final exponentiation */
 template<typename SWParamsT>
